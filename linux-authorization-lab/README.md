@@ -1,82 +1,123 @@
-# Linux Authorization Lab
+Linux Authorization and File Permissions Management
+ Project Description
+This project demonstrates how to manage authorization and file permissions in a Linux environment using Bash commands.
+ As part of a cybersecurity training scenario, the objective was to ensure that sensitive research files and directories in /home/researcher2/projects had appropriate access permissions, protecting them from unauthorized modification or exposure.
+Through this exercise, I practiced checking file details, interpreting permission strings, modifying permissions using chmod, and identifying hidden files to strengthen the system’s security posture.
 
-## Project Description
-In this lab, we explored **Linux file and directory permissions** and learned how to manage access using commands like `ls` and `chmod`. Authorization is essential to restrict who can read, write, or execute files and directories. Correct permissions protect sensitive information and maintain overall system security.
+ Explanations of Commands
+Command
+Description
+cd projects
+Navigates into the projects directory.
+ls -l
+Lists files and directories in long format, showing detailed information including permissions, ownership, and modification time.
+ls -la
+Lists all files, including hidden ones (those starting with a dot .), with detailed information.
+chmod
+Changes file permissions. It can grant (+) or remove (-) read (r), write (w), or execute (x) rights for user (u), group (g), or others (o).
 
-The scenario focused on the `/home/researcher2/projects` directory. The researcher2 user is part of the `research_team` group. The objective was to inspect and correct file permissions to ensure only authorized users could access specific files and directories.
 
----
+ Checking File Permissions with ls -la
+The command:
+ls -la
 
-## Explanations of Commands
+displays all files in the directory, including hidden ones (those starting with .).
+ Each file line begins with a 10-character string that represents its type and permissions.
+Example output:
+drwx--x--- 2 researcher2 research_team 4096 Oct 14 18:40 drafts
+-rw-rw-rw- 1 researcher2 research_team   46 Oct 14 18:40 project_k.txt
 
-- `cd projects`  
-  Navigate into the `projects` directory.
 
-- `ls -l`  
-  List files and directories with detailed permissions, ownership, and size.
+ Interpreting the 10-Character Permission String
+Each file or directory entry begins with 10 characters, like this:
+drwxr-xr--
 
-- `ls -la`  
-  List all files including hidden files, with full details.
+1st character → type of file
 
-- `chmod o-w project_k.txt`  
-  Remove write permission from the "other" user type for `project_k.txt`.
 
-- `chmod g-r project_m.txt`  
-  Remove read permission from the group for `project_m.txt`.
+d = directory
 
-- `chmod u-w,g-w,g+r .project_x.txt`  
-  Modify permissions of a hidden file: remove write for user and group, ensure group can read.
 
-- `chmod g-x drafts`  
-  Remove execute permission for the group on the `drafts` directory.
+- = regular file
 
----
 
-## Steps Performed
+2nd–4th → user (owner) permissions: r (read), w (write), x (execute)
 
-### 1. Inspecting Permissions
-- Used `ls -l` to list file and directory permissions.
-- Interpreted the 10-character permission string:
-  - 1st character: file type (`d` = directory, `-` = file)
-  - 2nd-4th: user permissions (r/w/x)
-  - 5th-7th: group permissions
-  - 8th-10th: other permissions
-- Checked the group owner (`research_team`) and identified hidden files with `ls -la`.
 
-### 2. Correcting File Permissions
-- Identified files with excessive permissions:
-  - `project_k.txt` allowed write for others → `chmod o-w project_k.txt`
-  - `project_m.txt` allowed read for group → `chmod g-r project_m.txt`
-- Ensured that only the intended user could read/write restricted files.
+5th–7th → group permissions
 
-### 3. Updating Hidden Files
-- Checked `.project_x.txt` and removed unauthorized write permissions for user and group, keeping read access:  
-  `chmod u-w,g-w,g+r .project_x.txt`
 
-### 4. Adjusting Directory Permissions
-- Inspected `/home/researcher2/projects/drafts` with `ls -l`.
-- Removed execute permissions for the group to restrict access:  
-  `chmod g-x drafts`
+8th–10th → other users' permissions
 
----
 
-## Hidden Files and Directories
-- Hidden files start with a dot `.` (e.g., `.project_x.txt`).  
-- Hidden files are listed using `ls -la`.  
-- Permissions for hidden files follow the same rules as normal files.
+For example:
+ -rw-r--r-- means a regular file where:
+The user can read and write.
 
----
 
-## Summary / Conclusion
-This lab reinforced the importance of **authorization** and **file permissions** in Linux. Key takeaways:
+The group can only read.
 
-- The 10-character permission string provides a quick view of who can read, write, or execute files and directories.  
-- The `chmod` command allows fine-grained control over permissions for **user**, **group**, and **other**.  
-- Hidden files require the same security checks as visible files.  
-- Proper permission management prevents unauthorized access and protects sensitive data.
 
-By completing this lab, we ensured that the `/home/researcher2/projects` directory and its contents follow proper authorization standards, strengthening the security of the system.
+Others can only read.
 
----
 
- **License:** Licensed under the [MIT License](../LICENSE)
+
+ Updating File Permissions with chmod
+The chmod command changes who can read, write, or execute a file.
+Syntax:
+chmod [owner_type][+ or -][permission] [filename]
+
+Where:
+u = user (owner)
+
+
+g = group
+
+
+o = others
+
+
+r = read
+
+
+w = write
+
+
+x = execute
+
+
+Examples from the lab:
+chmod o-w project_k.txt      # removes write permission from others
+chmod g-r project_m.txt      # removes read permission from group
+chmod u-w,g-w,g+r .project_x.txt   # adjusts permissions for hidden file
+chmod g-x drafts             # removes execute permission from group on a directory
+
+These changes ensure that only authorized users have the necessary access — an essential step in maintaining confidentiality and system integrity.
+
+ Hidden Files and Directories
+In Linux, hidden files or directories start with a period (.).
+ They are not shown in normal directory listings.
+ To view them, use:
+ls -la
+
+For example, .project_x.txt is a hidden file.
+ Even though it’s hidden, it can still have permissions changed and should be secured if it contains sensitive information.
+
+Summary
+In this project, I:
+Verified permissions of visible and hidden files.
+
+
+Used ls -la to identify ownership and permission settings.
+
+
+Interpreted 10-character permission strings to understand file access levels.
+
+
+Applied chmod commands to remove unnecessary write or execute permissions.
+
+
+Secured hidden files and restricted directory access to authorized users only.
+
+
+By completing this activity, I strengthened my understanding of Linux file authorization, an essential skill for cybersecurity analysts responsible for protecting critical systems and data.
