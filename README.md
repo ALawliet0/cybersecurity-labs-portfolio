@@ -1,4 +1,4 @@
-Welcome to my cybersecurity labs portfolio — a collection of hands-on projects focused on **Red Teaming**, **Pentesting**, and **AI/ML for offensive security**.
+Welcome to my cybersecurity labs portfolio — a collection of hands-on projects 
 
 Each lab explores a specific security concept or tool, with practical steps and results.
 
