@@ -126,7 +126,6 @@ After completing this activity, I learned how to:
 
 ## Author
 **DexterCyberSec**  
-Aspiring Red Team & Pentest professional specializing in AI-driven cybersecurity.
 
 ---
 
