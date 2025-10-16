@@ -5,7 +5,7 @@
 
 ## Project Description
 
-As a security analyst, I used SQL queries to investigate suspicious login activity and retrieve specific employee information from organizational databases. This project demonstrates how I applied filters using `AND`, `OR`, `NOT`, and `LIKE` operators to identify patterns, exclude specific data, and analyze potential cybersecurity incidents.
+I used SQL queries to investigate suspicious login activity and retrieve specific employee information from organizational databases. This project demonstrates how I applied filters using `AND`, `OR`, `NOT`, and `LIKE` operators to identify patterns, exclude specific data, and analyze potential cybersecurity incidents.
 
 Through this activity, I simulated real-world threat investigations by querying login attempts, identifying failed logins after hours, and filtering employee data for security maintenance tasks.
 
