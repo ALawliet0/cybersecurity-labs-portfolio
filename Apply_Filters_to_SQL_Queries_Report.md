@@ -1,4 +1,4 @@
-# Apply Filters to SQL Queries
+# apply filters to SQL queries
 ### Portfolio Project — Google Cybersecurity Professional Certificate
 
 ---
