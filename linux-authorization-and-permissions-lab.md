@@ -125,5 +125,5 @@ By completing this activity, I strengthened my understanding of Linux file autho
 ---
 
 ## Author
-**DexterCyberSec**  
+**ALawliet0**  
 Aspiring Red Team & Pentest professional specializing in AI-driven cybersecurity.
