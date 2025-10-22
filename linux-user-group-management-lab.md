@@ -108,5 +108,5 @@ These skills are essential for managing authentication and access control in Lin
 ---
 
 ## Author
-**DexterCyberSec**  
+**ALawliet0**  
 Aspiring Red Team & Pentest professional specializing in AI-driven cybersecurity.
